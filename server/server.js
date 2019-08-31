@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express()
 const bodyParser = require('body-parser')
 const path = require ('path');
+const soap = require('soap');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,14 +18,6 @@ app.use(require('./routes/index'));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-
-// mongoose.connect(process.env.URLDB, (err,res) =>{
-
-//   if (err) throw err;
-//   console.log('Base de datos ONLINE');
-
-// });
-
 app.listen(process.env.PORT, () => {
-  console.log(`Escuchando puerto : `,3000);
+  console.log(`Escuchando puerto : `,process.env.PORT);
 })
